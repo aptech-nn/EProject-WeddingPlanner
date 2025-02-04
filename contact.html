@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vows & Dreams</title>
+  
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
+  <!-- jQuery and Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #f4f4f4; /* Light background */
+      color: #444; /* Dark text for readability */
+      padding-top: 70px; /* Padding for fixed navbar */
+    }
+
+
+    header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 20px;
+  background: black;
+}
+
+.navbar {
+  background-color: #000;
+  padding-left: 20px; 
+}
+
+.navbar-brand img {
+  width: 120px;
+  margin-left: 20px;
+}
+
+.nav-link {
+  color: white !important;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  text-transform: uppercase;
+  position: relative;
+  padding-bottom: 3px;
+  margin-right: 110px;
+  font-size: 20px;
+}
+
+.nav-link::before,
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  width: 0;
+  height: 3px;
+  background-color: #333;
+  transition: all 0.3s;
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+  width: 100%;
+}
+
+.nav-link::after {
+  left: 50%;
+  bottom: 0;
+  width: 50%;
+  height: 2px;
+  background-color: #b3b3b3;
+  transition: all 0.3s;
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+  width: 50%;
+  left: 0;
+}
+
+.navbar-toggler {
+  border: none;
+  background: transparent;
+  outline: none;
+}
+
+.navbar-toggler-icon {
+  color: white;
+}
+
+.navbar-nav .nav-link {
+  color: white !important;
+  font-weight: 600;
+  text-transform: uppercase;
+  padding: 10px 15px;
+}
+
+
+    .contact-page {
+      padding: 60px 20px;
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    .contact-form, .contact-info {
+      background-color: #ffffff; /* White background for form */
+      color: #444; /* Dark text color */
+      padding: 40px;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1); /* Light shadow for effect */
+      transition: transform 0.3s ease-in-out;
+      margin-top: 60px;
+      border: 1px solid #ddd;
+    }
+
+    .contact-form:hover, .contact-info:hover {
+      transform: translateY(-10px); /* Hover effect */
+    }
+
+    .contact-form h2, .contact-info h2 {
+      color: #333;
+      margin-bottom: 25px;
+      font-size: 30px;
+      text-align: center;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    .form-control {
+      border-radius: 50px;
+      padding: 12px 18px;
+      background-color: #f9f9f9; /* Lighter background for inputs */
+      color: #444;
+      border: 1px solid #ccc;
+      font-size: 16px;
+      transition: background-color 0.3s ease;
+    }
+
+    .form-control:focus {
+      background-color: #fff;
+      border-color: #6e99e9; /* Red border on focus */
+    }
+
+    .btn-submit {
+      background-color: #82b4ec; /* Bold red button */
+      color: white;
+      border: none;
+      padding: 15px 30px;
+      cursor: pointer;
+      font-size: 16px;
+      border-radius: 50px;
+      width: 100%;
+      transition: background-color 0.3s ease;
+    }
+
+    .btn-submit:hover {
+      background-color: #8cbbe7; /* Darker red on hover */
+    }
+
+    
+    .contact-info p {
+        margin: 5px 0;
+        font-size: 16px;
+        word-wrap: break-word; /* Ensures text breaks properly */
+        overflow-wrap: break-word;
+        display: flex;
+      align-items: center;
+      margin-bottom: 15px;
+    }
+    .contact-info a.email {
+        color: #00bcd4;
+        text-decoration: none;
+        display: inline-block; /* Keeps it contained */
+        max-width: 100%;
+        word-wrap: break-word;
+    }
+
+
+    .contact-info i {
+      font-size: 28px;
+      margin-right: 15px;
+      color: #78a9e7; /* Red icons */
+    }
+
+    .social-links {
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    .social-links a {
+      font-size: 24px;
+      color: #444;
+      margin: 0 15px;
+      transition: color 0.3s ease;
+    }
+
+    .social-links a:hover {
+      color: #88c0ee; /* Red on hover */
+    }
+
+    .map-container iframe {
+      width: 100%;
+      height: 300px;
+      border: 0;
+      border-radius: 12px;
+    }
+
+    footer {
+      background-color: #fff; /* Light footer */
+      color: #444;
+      padding: 20px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      box-shadow: 0 -2px 5px rgba(0,0,0,0.1); /* Subtle shadow */
+    }
+
+    footer a {
+      color: #444;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    footer a:hover {
+      color: #84b4f1; /* Red on hover */
+    }
+
+    footer input[type="email"] {
+      padding: 5px;
+      width: 100%;
+      box-sizing: border-box;
+    }
+
+    footer button {
+      background-color: #e74c3c;
+      color: white;
+      border: none;
+      padding: 5px 10px;
+      cursor: pointer;
+      width: 100%;
+      margin-top: 10px;
+    }
+
+    footer .social-links i {
+      font-size: 30px;
+    }
+
+    footer p {
+      margin-top: 20px;
+      text-align: center;
+      width: 100%;
+    }
+    footer {
+  background-color: var(--primary-color);
+  color: var(--text-white);
+  padding: 60px 0 30px;
+}
+
+footer h4 {
+  font-family: 'Playfair Display', serif;
+  margin-bottom: 25px;
+  font-size: 24px;
+  color: var(--text-white);
+}
+
+footer a {
+  color: #a7dff5;
+}
+
+.subscribe-input {
+  background: rgba(255, 255, 255, 0.1);
+  border: none;
+  padding: 12px;
+  border-radius: 5px;
+  color: white;
+  margin-bottom: 15px;
+}
+
+.subscribe-button {
+  background: var(--text-light);
+  border: none;
+  padding: 12px 25px;
+  border-radius: 5px;
+  font-weight: 500;
+  letter-spacing: 1px;
+  transition: transform 0.3s ease;
+  color: var(--primary-color);
+}
+
+.subscribe-button:hover {
+  transform: translateY(-2px);
+}
+
+.social-icons a {
+  margin-right: 20px;
+  font-size: 24px;
+  transition: transform 0.3s ease;
+  color: white;
+}
+
+.social-icons a:hover {
+  transform: translateY(-5px);
+  color: white;
+}
+
+.quick-links li {
+  margin-bottom: 10px;
+}
+/* Media Queries */
+@media (max-width: 768px) {
+  .navbar-nav {
+    text-align: center;
+  }
+
+  .navbar-brand img {
+    width: 100px;
+  }
+
+  .nav-link {
+    margin-right: 30px;
+    font-size: 18px;
+  }
+  .subscribe-input,
+  .subscribe-button {
+    width: 100%;
+    padding: 12px;
+  }
+
+  .social-icons a {
+    font-size: 20px;
+  }
+  footer {
+    padding: 40px 0 20px;
+  }
+
+  footer h4 {
+    font-size: 20px;
+  }
+
+  .subscribe-input,
+  .subscribe-button {
+    width: 100%;
+    padding: 12px;
+  }
+
+  .social-icons a {
+    font-size: 20px;
+  }
+}
+
+
+
+
+
+
+  </style>
+</head>
+<body>
+
+  <!-- Header and Navigation -->
+
+  <header>
+    <nav class="navbar navbar-expand-lg">
+        <a class="navbar-brand" href="#"><img src="VOWS_&_DREAMS_(1)[1].png" alt="Logo" width="100"></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
+            <span class="navbar-toggler-icon"><i class="fas fa-bars"></i></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="aboutus.html">About</a></li>
+                <li class="nav-item"><a class="nav-link" href="gallery.html">Gallery</a></li>
+                <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                <li class="nav-item"><a class="nav-link" href="login.html">Login</a></li>
+            </ul>
+        </div>
+    </nav>
+</header>
+
+
+  <!-- Contact Form Section -->
+  <div class="container contact-page">
+    <div class="row">
+      <!-- Contact Form -->
+      <div class="col-md-6 col-12">
+        <div class="contact-form">
+          <h2>Get In Touch</h2>
+          <form>
+            <div class="form-group">
+              <label for="name">Your Name</label>
+              <input type="text" class="form-control" id="name" placeholder="Your Name" required>
+            </div>
+            <div class="form-group">
+              <label for="email">Your Email</label>
+              <input type="email" class="form-control" id="email" placeholder="Your Email" required>
+            </div>
+            <div class="form-group">
+              <label for="message">Your Message</label>
+              <textarea class="form-control" id="message" rows="4" placeholder="Your Message" required></textarea>
+            </div>
+            <button type="submit" class="btn-submit">Send Message</button>
+          </form>
+        </div>
+      </div>
+
+      <!-- Contact Information -->
+      <div class="col-md-6 col-12">
+        <div class="contact-info">
+          <h2>Contact Info</h2>
+          <p><i class="fas fa-map-marker-alt"></i> 123 Wedding St, Bliss City</p>
+          <p><i class="fas fa-phone-alt"></i> +123 456 7890</p>
+          <p><i class="fas fa-envelope"></i> <a href="mailto:info@weddingplanner.com">info@weddingplanner.com</a></p>
+          <div class="social-links">
+            <a href="https://facebook.com" target="_blank"><i class="fab fa-facebook"></i></a>
+            <a href="https://twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
+            <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Map Section -->
+    <div class="map-container mt-5">
+      <iframe src="https://maps.google.com/maps?q=Wedding%20Venue&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0" allowfullscreen=""></iframe>
+    </div>
+  </div>
+
+  <!-- Footer -->
+ 
+  
+  <footer style="background-color: #333; color: #fff; padding: 20px; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 20px; text-align: center;">
+    <div style="flex: 1; min-width: 250px;">
+        <h4>About Us</h4>
+        <p>We are passionate about making your wedding day as special and unique as your love story. Our team is dedicated to bringing your dream wedding to life.</p>
+    </div>
+
+    <div style="flex: 1; min-width: 250px;">
+        <h4>Quick Links</h4>
+        <ul style="list-style: none; padding: 0;">
+            <li><a href="index.html" style="color: #9ed8e2; text-decoration: none; display: block; padding: 5px;">Home</a></li>
+            <li><a href="aboutus.html" style="color: #9ed8e2; text-decoration: none; display: block; padding: 5px;">About</a></li>
+            <li><a href="gallery.html" style="color: #9ed8e2; text-decoration: none; display: block; padding: 5px;">Gallery</a></li>
+            <li><a href="contact.html" style="color: #9ed8e2; text-decoration: none; display: block; padding: 5px;">Contact</a></li>
+            <li><a href="login.html" style="color: #9ed8e2; text-decoration: none; display: block; padding: 5px;">Login</a></li>
+        </ul>
+    </div>
+
+    <div style="flex: 1; min-width: 250px;">
+        <h4>Contact Us</h4>
+        <p>123 Wedding St, Bliss City</p>
+        <p>+123 456 7890</p>
+        <p><a href="mailto:info@weddingbliss.com" style="color: #fff; text-decoration: none;">info@weddingbliss.com</a></p>
+    </div>
+
+    <div style="flex: 1; min-width: 250px;">
+        <h4>Subscribe</h4>
+        <p>Stay updated with the latest news and special offers.</p>
+        <input type="email" placeholder="Your Email" style="padding: 10px; width: 100%; box-sizing: border-box; border-radius: 5px; border: none;"/>
+        <button style="background-color: #00bcd4; color: white; border: none; padding: 10px; cursor: pointer; width: 100%; margin-top: 10px; border-radius: 5px;">Subscribe</button>
+        
+        <h4 style="margin-top: 20px;">Follow Us</h4>
+        <div>
+            <a href="https://facebook.com" target="_blank" style="color: #fff; text-decoration: none; margin: 0 10px;">
+                <i class="fab fa-facebook-square" style="font-size: 30px;"></i>
+            </a>
+            <a href="https://twitter.com" target="_blank" style="color: #fff; text-decoration: none; margin: 0 10px;">
+                <i class="fab fa-twitter-square" style="font-size: 30px;"></i>
+            </a>
+            <a href="https://instagram.com" target="_blank" style="color: #fff; text-decoration: none; margin: 0 10px;">
+                <i class="fab fa-instagram-square" style="font-size: 30px;"></i>
+            </a>
+            <a href="https://pinterest.com" target="_blank" style="color: #fff; text-decoration: none; margin: 0 10px;">
+                <i class="fab fa-pinterest-square" style="font-size: 30px;"></i>
+            </a>
+        </div>
+    </div>
+
+    <p style="margin-top: 20px; width: 100%; text-align: center;">&copy; 2025 Vows & Dreams. All Rights Reserved.</p>
+</footer>
+<script>
+    // Form validation function
+    function validateForm(event) {
+      // Prevent form submission for validation
+      event.preventDefault();
+      
+      // Get form values
+      const name = document.getElementById('name').value;
+      const email = document.getElementById('email').value;
+      const message = document.getElementById('message').value;
+      
+      // Regular expression for email validation
+      const emailPattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
+      
+      // Regular expression for name (only letters and spaces)
+      const namePattern = /^[A-Za-z\s]+$/;
+      
+      // Clear previous error messages
+      const errorMessages = document.querySelectorAll('.error-message');
+      errorMessages.forEach(msg => msg.remove());
+      
+      // Validation checks
+      let valid = true;
+      
+      // Validate name (only letters and spaces)
+      if (name === "") {
+        showError('name', 'Name is required');
+        valid = false;
+      } else if (!name.match(namePattern)) {
+        showError('name', 'Name can only contain letters and spaces');
+        valid = false;
+      }
+      
+      // Validate email
+      if (email === "") {
+        showError('email', 'Email is required');
+        valid = false;
+      } else if (!email.match(emailPattern)) {
+        showError('email', 'Please enter a valid email address');
+        valid = false;
+      }
+      
+      // Validate message
+      if (message === "") {
+        showError('message', 'Message is required');
+        valid = false;
+      }
+      
+      // If all fields are valid, submit the form
+      if (valid) {
+        alert('Form submitted successfully');
+        // Here you can submit the form using AJAX or a traditional form submission.
+      }
+    }
+  
+    // Show error message
+    function showError(fieldId, message) {
+      const field = document.getElementById(fieldId);
+      const errorMessage = document.createElement('p');
+      errorMessage.classList.add('error-message');
+      errorMessage.style.color = 'red';
+      errorMessage.textContent = message;
+      field.parentElement.appendChild(errorMessage);
+    }
+  
+    // Add event listener to form
+    document.querySelector('form').addEventListener('submit', validateForm);
+  </script
+ 
+</body>
+</html>

@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Vows & Dreams</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            
+            padding-top: 60px;
+            background-color: #f9f6f1;  /* Light cream background */
+            color: #333;  /* Dark text for readability */
+        }
+       
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px 20px;
+            background: black
+        }
+        .navbar {
+      background-color: #000;
+      padding-left: 20px; 
+    }
+   
+
+
+
+    .navbar-brand img {
+      width: 120px;
+      margin-left: 20px;
+    }
+    .nav-link {
+      color: white !important;
+      font-family: 'Poppins', sans-serif;
+      font-weight: 600;
+      text-transform: uppercase;
+      position: relative;
+      padding-bottom: 3px;
+      margin-right: 110px;
+      
+      font-size: 20px;
+    }
+    .nav-link::before,
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            width: 0;
+            height: 3px;
+            background-color: #333;
+            transition: all 0.3s;
+        }
+    .nav-link:hover::after,
+    .nav-link.active::after {
+     
+      width: 100%;
+     
+    }
+    .nav-link::after {
+            left: 50%;
+            bottom: 0;
+            width: 50%;
+            height: 2px;
+            background-color: #b3b3b3;
+            transition: all 0.3s;
+        }
+    
+    
+    
+    .nav-link:hover::after,
+        .nav-link.active::after {
+            width: 50%;
+            left: 0;
+        }
+
+
+        .logo img {
+            width: 120px;
+            
+        }
+
+        .navbar-toggler {
+            border: none;
+            background: transparent;
+            outline: none;
+        }
+        .navbar-toggler-icon {
+            color: white;
+        }
+        .navbar-nav .nav-link {
+            color: white !important;
+            font-weight: 600;
+            text-transform: uppercase;
+            padding: 10px 15px;
+        }
+        .about-section {
+            padding: 80px 20px;
+            text-align: center;
+            margin-top: 50px;
+        }
+        .about-image {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+        .stats-box {
+            background: rgba(158, 216, 226, 0.1);
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center !important;
+            margin: 10px 0;
+            margin: 5px;
+            margin-left: 60px;
+            
+        }
+        .team-member {
+            text-align: center;
+        }
+        .team-image {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 10px;
+            border: 3px solid #9ed8e2;
+        }
+        footer {
+            background-color: #333;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        @media (max-width: 768px) {
+            .navbar-nav {
+                text-align: center;
+            }
+            .team-image {
+                width: 120px;
+                height: 120px;
+            }
+        }
+        @media (max-width: 768px) {
+    footer {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+    footer div {
+        margin-bottom: 20px;
+    }
+}
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg">
+            <a class="navbar-brand" href="#"><img src="VOWS_&_DREAMS_(1)[1].png" alt="Logo" width="100"></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
+                <span class="navbar-toggler-icon"><i class="fas fa-bars"></i></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="aboutus.html">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="gallery.html">Gallery</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                    <li class="nav-item"><a class="nav-link" href="login.html">Login</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    
+    <section class="about-section">
+        <div class="container">
+            <h1>About Vows & Dreams</h1>
+            <p>We bring your dream wedding to life with elegance and creativity.</p>
+            <img src="WEDDING PLANNING TEAM.jpg" alt="Wedding Planning Team" class="about-image">
+        </div>
+    </section>
+    
+    <section class="container">
+        <div class="row text-center">
+            <div class="col-md-3 col-sm-6 stats-box">
+                <h3>500+</h3>
+                <p>Weddings Planned</p>
+            </div>
+            <div class="col-md-3 col-sm-6 stats-box">
+                <h3>50+</h3>
+                <p>Locations</p>
+            </div>
+            <div class="col-md-3 col-sm-6 stats-box">
+                <h3>15+</h3>
+                <p>Years Experience</p>
+            </div>
+            
+        </div>
+    </section>
+    
+    <section class="container text-center">
+        <h2>Meet Our Team</h2>
+        <div class="row">
+            <div class="col-lg-4 col-md-6 team-member">
+                <img src="OIP.jpeg" alt="Sarah Jhonson" class="team-image">               
+                <h3>Sarah Johnson</h3>
+                <p>Lead Wedding Planner</p>
+            </div>
+            <div class="col-lg-4 col-md-6 team-member">
+                <img src="OIP (1).jpeg" alt="Michael Chen" class="team-image">
+                <h3>Michael Chen</h3>
+                <p>Design Coordinator</p>
+            </div>
+            <div class="col-lg-4 col-md-6 team-member">
+                <img src="unnamed.jpg" alt="Emily Roberts" class="team-image">
+                <h3>Emily Roberts</h3>
+                <p>Event Coordinator</p>
+            </div>
+        </div>
+    </section>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+<footer style="background-color: #333; color: #fff; padding: 20px; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 20px; text-align: center;">
+    <div style="flex: 1; min-width: 250px;">
+        <h4>About Us</h4>
+        <p>We are passionate about making your wedding day as special and unique as your love story. Our team is dedicated to bringing your dream wedding to life.</p>
+    </div>
+
+    <div style="flex: 1; min-width: 250px;">
+        <h4>Quick Links</h4>
+        <ul style="list-style: none; padding: 0;">
+            <li><a href="index.html" style="color: #9ed8e2; text-decoration: none; display: block; padding: 5px;">Home</a></li>
+            <li><a href="aboutus.html" style="color: #9ed8e2; text-decoration: none; display: block; padding: 5px;">About</a></li>
+            <li><a href="gallery.html" style="color: #9ed8e2; text-decoration: none; display: block; padding: 5px;">Gallery</a></li>
+            <li><a href="contact.html" style="color: #9ed8e2; text-decoration: none; display: block; padding: 5px;">Contact</a></li>
+            <li><a href="login.html" style="color: #9ed8e2; text-decoration: none; display: block; padding: 5px;">Login</a></li>
+        </ul>
+    </div>
+
+    <div style="flex: 1; min-width: 250px;">
+        <h4>Contact Us</h4>
+        <p>123 Wedding St, Bliss City</p>
+        <p>+123 456 7890</p>
+        <p><a href="mailto:info@weddingbliss.com" style="color: #fff; text-decoration: none;">info@weddingbliss.com</a></p>
+    </div>
+
+    <div style="flex: 1; min-width: 250px;">
+        <h4>Subscribe</h4>
+        <p>Stay updated with the latest news and special offers.</p>
+        <input type="email" placeholder="Your Email" style="padding: 10px; width: 100%; box-sizing: border-box; border-radius: 5px; border: none;"/>
+        <button style="background-color: #00bcd4; color: white; border: none; padding: 10px; cursor: pointer; width: 100%; margin-top: 10px; border-radius: 5px;">Subscribe</button>
+        
+        <h4 style="margin-top: 20px;">Follow Us</h4>
+        <div>
+            <a href="https://facebook.com" target="_blank" style="color: #fff; text-decoration: none; margin: 0 10px;">
+                <i class="fab fa-facebook-square" style="font-size: 30px;"></i>
+            </a>
+            <a href="https://twitter.com" target="_blank" style="color: #fff; text-decoration: none; margin: 0 10px;">
+                <i class="fab fa-twitter-square" style="font-size: 30px;"></i>
+            </a>
+            <a href="https://instagram.com" target="_blank" style="color: #fff; text-decoration: none; margin: 0 10px;">
+                <i class="fab fa-instagram-square" style="font-size: 30px;"></i>
+            </a>
+            <a href="https://pinterest.com" target="_blank" style="color: #fff; text-decoration: none; margin: 0 10px;">
+                <i class="fab fa-pinterest-square" style="font-size: 30px;"></i>
+            </a>
+        </div>
+    </div>
+
+    <p style="margin-top: 20px; width: 100%; text-align: center;">&copy; 2025 Vows & Dreams. All Rights Reserved.</p>
+</footer>
+
+
+    
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

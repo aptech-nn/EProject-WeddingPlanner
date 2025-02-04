@@ -1,0 +1,1398 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vows & Dreams</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+
+    <style>
+
+        body {
+            font-family: 'Arial', sans-serif;
+            color: #fff;
+            overflow-x: hidden;
+            background-color: #f4f4f4;
+            
+
+        }
+
+
+       
+
+        header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 20px;
+  background: black;
+}
+
+.navbar {
+  background-color: #000;
+  padding-left: 20px; 
+}
+
+.navbar-brand img {
+  width: 120px;
+  margin-left: 20px;
+}
+
+.nav-link {
+  color: white !important;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  text-transform: uppercase;
+  position: relative;
+  padding-bottom: 3px;
+  margin-right: 110px;
+  font-size: 20px;
+}
+
+.nav-link::before,
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  width: 0;
+  height: 3px;
+  background-color: #333;
+  transition: all 0.3s;
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+  width: 100%;
+}
+
+.nav-link::after {
+  left: 50%;
+  bottom: 0;
+  width: 50%;
+  height: 2px;
+  background-color: #b3b3b3;
+  transition: all 0.3s;
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+  width: 50%;
+  left: 0;
+}
+
+.navbar-toggler {
+  border: none;
+  background: transparent;
+  outline: none;
+}
+
+.navbar-toggler-icon {
+  color: white;
+}
+
+.navbar-nav .nav-link {
+  color: white !important;
+  font-weight: 600;
+  text-transform: uppercase;
+  padding: 10px 15px;
+}
+
+       
+
+        .hero {
+            height: 500px;
+            width: 1200px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: url('your-image.jpg') no-repeat center center/cover;
+            position: relative;
+            background-size: cover;
+            background-position: center center;
+            background: #4A90E2;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.4);
+        }
+        
+
+        .hero-content {
+            text-align: center;
+            z-index: 2;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+        }
+
+        .subtitle {
+            font-size: 1.5rem;
+            margin: 1em 0;
+            font-weight: 300;
+            letter-spacing: 1px;
+        }
+
+        .hero-button {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 30px;
+            border: 1px solid #fff;
+            text-transform: uppercase;
+            text-decoration: none;
+            color: #fff;
+            font-weight: 500;
+            letter-spacing: 1px;
+            transition: 0.3s;
+        }
+
+        .hero-button:hover {
+            background: #fff;
+            color: #000;
+        }
+
+       
+
+        .banner1 {
+            width: 1350px;
+            height: 650px;
+            background-size: cover;
+        }
+
+        
+        .testimonials {
+            
+            padding: 50px 0;
+            background-color: #f0f0f0;
+        }
+        .testimonial-card h4 {
+    color: #333; 
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-top: 20px;
+}
+       .testimonial-card p {
+    font-size: 1rem;
+    color: #555;
+    margin: 15px 0;
+    line-height: 1.5;
+    font-style: italic;
+}
+
+        .section-title {
+            font-family: 'Cursive', serif;
+            font-size: 2rem;
+            color: #555;
+            text-transform: capitalize;
+        }
+
+        .testimonial-card {
+            
+            padding: 1.5rem;
+            border-radius: 15px;
+            background: #fff;
+            border: 1px solid #ddd; 
+            position: relative;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+        .testimonial-card::before {
+           content: '“'; 
+           font-size: 4rem;
+            color: #f1f1f1;
+           position: absolute;
+           top: 20px;
+           left: 20px;
+}
+        .testimonial-card:hover {
+         transform: translateY(-5px); 
+        transition: transform 0.3s ease-in-out;
+}
+
+
+        .name {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #333;
+            font-family: 'Georgia', serif;
+        }
+
+        .text-muted {
+            font-size: 0.95rem;
+            line-height: 1.5;
+            color: #666;
+        }
+
+        .social-icons a {
+            margin: 0 10px;
+            font-size: 1.4rem;
+             color: #555;
+            transition: color 0.3s;
+        }
+        .social-icons a:hover {
+    color: #007bff;
+    transform: scale(1.1);
+}
+
+       
+
+        
+
+        .rounded-circle {
+            max-width: 250px;
+            height: auto;
+            border: 5px solid #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .banner1{
+            margin-top: 115px;
+            height: 550px;
+        }
+        .about-section {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 50px;
+            background-color: #fefaf5;
+            color: #333;
+        }
+
+        .about-content, .about-image {
+            flex: 1;
+            padding: 20px;
+        }
+
+        .about-content {
+            max-width: 600px;
+        }
+
+        .about-content h1 {
+            font-size: 36px;
+            font-weight: normal;
+            color: #555;
+            margin-bottom: 10px;
+        }
+
+        .about-content h1 span {
+            display: block;
+            font-size: 18px;
+            font-weight: lighter;
+            color: #888;
+        }
+
+        .about-content .divider {
+            width: 50px;
+            height: 2px;
+            background-color: #aaa;
+            margin: 20px 0;
+        }
+
+        .about-content p {
+            font-size: 18px;
+            line-height: 1.6;
+        }
+
+        .about-image img {
+            width: 100%;
+            height: auto;
+        }
+        .about-image {
+        width: 100%;
+        height: auto;
+        max-width: 100%;  
+        display: block;  
+        margin-top: 20px;  
+        margin-bottom: 20px;  
+        object-fit: cover;  
+}
+
+        strong{
+            text-decoration: line-through;
+        }
+
+.modal-content {
+    background-color: #fff; 
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); 
+}
+
+.modal-header {
+    border-bottom: 2px solid #f1f1f1;
+    background-color: #333; 
+    color: #fff; 
+}
+
+.modal-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #fff; 
+    
+}
+
+
+.modal-body {
+    font-family: 'Arial', sans-serif;
+    background-color: #fff; 
+    color: #333; 
+}
+
+
+h2.text-center {
+    font-size: 1.8rem;
+    font-weight: 500;
+    color: #333;
+}
+
+
+.form-label {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #333; 
+}
+
+
+.form-control, .form-select {
+    font-size: 1rem;
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #ddd; 
+    box-shadow: none;
+    transition: border-color 0.3s;
+}
+
+.form-control:focus, .form-select:focus {
+    border-color: #3498db; 
+    box-shadow: 0 0 5px rgba(52, 152, 219, 0.5);
+}
+
+
+.form-check-inline {
+    margin-right: 15px;
+}
+
+.form-check-label {
+    font-size: 1rem;
+    font-weight: 500;
+    color: #333; 
+}
+
+
+.btn-primary {
+    background-color: #333; 
+    border: none;
+    padding: 10px 20px;
+    border-radius: 25px;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #fff; 
+    transition: background-color 0.3s ease;
+}
+
+.btn-primary:hover {
+    background-color: #2980b9; 
+}
+
+
+#meal-other {
+    margin-top: 10px;
+}
+
+#meal-other-text {
+    font-size: 1rem;
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    width: 100%;
+}
+
+
+.btn-close {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    color: #aaa;
+    opacity: 1;
+}
+
+.btn-close:hover {
+    color: #333;
+    opacity: 0.7;
+}
+
+
+.mb-3 {
+    margin-bottom: 20px;
+}
+
+
+.text-center {
+    margin-top: 20px;
+}
+
+
+.modal-backdrop {
+    background-color: rgba(0, 0, 0, 0.7); 
+}
+footer {
+      background-color: #fff; /* Light footer */
+      color: #444;
+      padding: 20px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      box-shadow: 0 -2px 5px rgba(0,0,0,0.1); /* Subtle shadow */
+    }
+
+    footer a {
+      color: #444;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    footer a:hover {
+      color: #84b4f1; /* Red on hover */
+    }
+
+    footer input[type="email"] {
+      padding: 5px;
+      width: 100%;
+      box-sizing: border-box;
+    }
+
+    footer button {
+      background-color: #e74c3c;
+      color: white;
+      border: none;
+      padding: 5px 10px;
+      cursor: pointer;
+      width: 100%;
+      margin-top: 10px;
+    }
+
+    footer .social-links i {
+      font-size: 30px;
+    }
+
+    footer p {
+      margin-top: 20px;
+      text-align: center;
+      width: 100%;
+    }
+    footer {
+  background-color: var(--primary-color);
+  color: var(--text-white);
+  padding: 60px 0 30px;
+}
+
+footer h4 {
+  font-family: 'Playfair Display', serif;
+  margin-bottom: 25px;
+  font-size: 24px;
+  color: var(--text-white);
+}
+
+footer a {
+  color: #a7dff5;
+}
+
+.subscribe-input {
+  background: rgba(255, 255, 255, 0.1);
+  border: none;
+  padding: 12px;
+  border-radius: 5px;
+  color: white;
+  margin-bottom: 15px;
+}
+
+.subscribe-button {
+  background: var(--text-light);
+  border: none;
+  padding: 12px 25px;
+  border-radius: 5px;
+  font-weight: 500;
+  letter-spacing: 1px;
+  transition: transform 0.3s ease;
+  color: var(--primary-color);
+}
+
+.subscribe-button:hover {
+  transform: translateY(-2px);
+}
+
+.social-icons a {
+  margin-right: 20px;
+  font-size: 24px;
+  transition: transform 0.3s ease;
+  color: white;
+}
+
+.social-icons a:hover {
+  transform: translateY(-5px);
+  color: white;
+}
+
+.quick-links li {
+  margin-bottom: 10px;
+}
+.video-section {
+  margin-top: 20px;
+  width: 100%;
+  text-align: center;
+}
+
+.promo-video {
+  width: 80%; /* Default width for larger screens */
+  max-width: 1000px; /* Maximum width to prevent the video from getting too big */
+  height: auto;
+  object-fit: cover;
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+  .navbar-nav {
+    text-align: center;
+  }
+
+  .navbar-brand img {
+    width: 100px;
+  }
+
+  .nav-link {
+    margin-right: 30px;
+    font-size: 18px;
+  }
+  .subscribe-input,
+  .subscribe-button {
+    width: 100%;
+    padding: 12px;
+  }
+
+  .social-icons a {
+    font-size: 20px;
+  }
+  footer {
+    padding: 40px 0 20px;
+  }
+
+  footer h4 {
+    font-size: 20px;
+  }
+
+  .subscribe-input,
+  .subscribe-button {
+    width: 100%;
+    padding: 12px;
+  }
+
+  .social-icons a {
+    font-size: 20px;
+  }
+}
+/* Responsive Design for Mobile Devices */
+@media (max-width: 767px) {
+    .banner1 {
+      max-height: 300px; /* Reduce the image height on small screens */
+    }
+
+    .promo-video {
+      max-height: 250px; /* Adjust the height of the video for mobile */
+    }
+  }
+  .banner-section {
+    text-align: center;
+    position: relative;
+    margin-top: 52px;
+  }
+
+  /* Image Styling */
+  .banner1 {
+    width: 100%;
+    height: auto; /* Ensures aspect ratio is maintained */
+    object-fit: cover;
+    max-height: 500px; /* Adjust as needed */
+  }
+
+ 
+  
+
+
+
+/* Responsive Design for Small Screens */
+@media (max-width: 767px) {
+  /* Adjust the video size for mobile */
+  .video-container {
+    width: 90%; /* Smaller container width for mobile */
+  }
+
+  
+}
+
+
+
+  /* Responsive Design for Mobile Devices */
+  @media (max-width: 767px) {
+    .banner1 {
+      max-height: 300px; /* Reduced image height for mobile */
+    }
+  }
+  .video-section {
+  margin-top: 20px;
+  width: 100%;
+  height: 400px; /* Adjust video section height */
+  display: flex;
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+  text-align: center;
+}
+
+.promo-video {
+  max-width: 100%; /* Ensures the video does not overflow the container */
+  width: 80%; /* Default width for larger screens */
+  height: 100%; /* Ensures the video fits the container height */
+  object-fit: contain; /* Prevents the video from being stretched */
+}
+
+/* Responsive Design for Small Screens */
+@media (max-width: 767px) {
+  /* Adjust the video size for mobile */
+  .promo-video {
+    width: 90%; /* Smaller width for mobile */
+    max-width: 90%;
+    height: auto;
+  }
+}
+.about-section {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    padding: 50px 20px;
+    background-color: #fefaf5;
+    color: #333;
+}
+
+.about-content, .about-image {
+    flex: 1;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.about-content {
+    max-width: 600px;
+}
+
+.about-content h1 {
+    font-size: 36px;
+    font-weight: normal;
+    color: #555;
+    margin-bottom: 10px;
+}
+
+.about-content h1 span {
+    display: block;
+    font-size: 18px;
+    font-weight: lighter;
+    color: #888;
+}
+
+.about-content .divider {
+    width: 50px;
+    height: 2px;
+    background-color: #aaa;
+    margin: 20px 0;
+}
+
+.about-content p {
+    font-size: 18px;
+    line-height: 1.6;
+}
+
+.about-image img {
+    width: 100%;
+    height: auto;
+    max-width: 400px;
+    object-fit: cover;
+}
+
+/* Responsive Design */
+@media (max-width: 767px) {
+    .about-section {
+        flex-direction: column;  /* Stack content and image vertically */
+        text-align: center;
+        padding: 20px;
+    }
+
+    .about-content {
+        max-width: 100%;  /* Allow the content to stretch across the full width */
+    }
+
+    .about-image img {
+        max-width: 80%;  /* Adjust the image width for smaller screens */
+        margin-top: 20px;
+    }
+
+    .about-content h1 {
+        font-size: 28px;
+    }
+
+    .about-content p {
+        font-size: 16px;
+    }
+}/* Ensure the image is fully responsive and fits within the screen */
+.banner-image {
+  width: 100%;        /* Make the image take up full width */
+  max-width: 100%;    /* Prevents the image from exceeding the screen size */
+  height: auto;       /* Maintain aspect ratio */
+  display: block;     /* Centers the image horizontally */
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* For mobile screens */
+@media (max-width: 767px) {
+  .banner-image {
+    width: 100%;        /* Ensure it doesn't overflow the screen */
+    max-width: 100%;    /* Prevent image from exceeding screen size */
+    height: auto;       /* Maintain aspect ratio */
+  }
+}
+
+
+  
+
+
+
+        
+
+    </style>
+</head>
+<body>
+    
+      <header>
+        <nav class="navbar navbar-expand-lg">
+            <a class="navbar-brand" href="#"><img src="VOWS_&_DREAMS_(1)[1].png" alt="Logo" width="100"></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
+                <span class="navbar-toggler-icon"><i class="fas fa-bars"></i></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="aboutus.html">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="gallery.html">Gallery</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                    <li class="nav-item"><a class="nav-link" href="login.html">Login</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+        
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.4.4/dist/umd/popper.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    
+
+  
+ 
+        
+  <section class="banner-section">
+    <!-- Image Banner -->
+    <img class="banner1 img-fluid" src="banner2.jpg" alt="Banner">
+</section>
+    
+    <!-- Promo Video -->
+    <section class="video-section">
+    
+      <video class="promo-video" src="Promo Video _  Jaspers Event Management.mp4" muted loop autoplay></video>
+    </section>
+  <section class="testimonials text-center">
+    <h2 class="section-title mb-4">What Our Clients Say</h2>
+    <div id="testimonialCarousel" class="carousel slide" data-bs-ride="carousel">
+      <div class="carousel-inner">
+        <!-- Testimonial 1 -->
+        <div class="carousel-item active">
+          <div class="container">
+            <div class="row align-items-center">
+              <div class="col-md-4 text-center">
+                <div class="testimonial-card">
+                  <h4 class="name">Alia Carry</h4>
+                  <p class="text-muted">
+                    I had the most amazing experience! From the first consultation to the wedding day, the team went above and beyond to ensure everything was perfect. I truly felt like royalty, and the entire event was beautifully organized. Highly recommended!
+                  </p>
+                  <div class="social-icons mt-3">
+                    <a href="https://facebook.com" style="font-size: 30px; color: black; transition: color 0.3s;" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://twitter.com" style="font-size: 30px; color: black; transition: color 0.3s;" target="_blank"><i class="fab fa-twitter"></i></a>
+                    <a href="https://instagram.com" style="font-size: 30px; color: black; transition: color 0.3s;" target="_blank"><i class="fab fa-instagram"></i></a>
+                </div>
+                
+                </div>
+              </div>
+              <div class="col-md-4">
+                <img src="brride1.jpg" alt="Bride and Groom" class="img-fluid rounded-circle">
+              </div>
+              <div class="col-md-4 text-center">
+                <div class="testimonial-card">
+                  <h4 class="name">Larry Brook</h4>
+                  <p class="text-muted">
+                    Our wedding day was everything we imagined and more! The attention to detail and personal touch provided by the team made us feel so special. We couldn’t have asked for a better experience. Thank you for making our big day unforgettable!
+                  </p>
+                  <div class="social-icons mt-3">
+                    <a href="https://facebook.com" style="font-size: 30px; color: black; transition: color 0.3s;" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://twitter.com" style="font-size: 30px; color: black; transition: color 0.3s;" target="_blank"><i class="fab fa-twitter"></i></a>
+                    <a href="https://instagram.com" style="font-size: 30px; color: black; transition: color 0.3s;" target="_blank"><i class="fab fa-instagram"></i></a>
+                </div>
+                
+                  
+                  
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Testimonial 2 -->
+        <div class="carousel-item">
+          <div class="container">
+            <div class="row align-items-center">
+              <div class="col-md-4 text-center">
+                <div class="testimonial-card">
+                  <h4 class="name">Emma Stone</h4>
+                  <p class="text-muted">
+                    The service was impeccable! From planning to execution, everything was perfect. Couldn't have asked for a better experience.
+                  </p>
+        
+                 
+                  <div class="social-icons mt-3">
+                    <a href="https://facebook.com" style="font-size: 30px; color: black; transition: color 0.3s;" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://twitter.com" style="font-size: 30px; color: black; transition: color 0.3s;" target="_blank"><i class="fab fa-twitter"></i></a>
+                    <a href="https://instagram.com" style="font-size: 30px; color: black; transition: color 0.3s;" target="_blank"><i class="fab fa-instagram"></i></a>
+                </div>
+                
+                </div>
+              </div>
+              <div class="col-md-4">
+                <img src="bride2.jpg" alt="Wedding Couple" class="img-fluid rounded-circle">
+              </div>
+              <div class="col-md-4 text-center">
+                <div class="testimonial-card">
+                  <h4 class="name">Michael Brown</h4>
+                  <p class="text-muted">
+                    Truly professional and creative team! They made our special day unforgettable. Highly recommend their services!
+                  </p>
+                  <div class="social-icons mt-3">
+                    <a href="https://facebook.com" style="font-size: 30px; color: black; transition: color 0.3s;" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://twitter.com" style="font-size: 30px; color: black; transition: color 0.3s;" target="_blank"><i class="fab fa-twitter"></i></a>
+                    <a href="https://instagram.com" style="font-size: 30px; color: black; transition: color 0.3s;" target="_blank"><i class="fab fa-instagram"></i></a>
+                </div>
+                
+                  
+                
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Carousel controls -->
+      <button class="carousel-control-prev" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+  </section>
+  <div class="about-section">
+    <div class="about-content">
+        <h1>
+            Our Story
+            <span>Vows & Dreams</span>
+        </h1>
+        <div class="divider"></div>
+        <p>
+            We met by chance, became friends by choice, and fell in love by destiny. This is the start of a beautiful new chapter in our lives. We can't wait to celebrate our journey with you on our special day.
+        </p>
+    </div>
+    <div class="about-image">
+        <img src="logo_f-removebg-preview.png" alt="Floral Design">
+    </div>
+</div>
+
+  
+  
+  <img src="galleryy package.jpg" alt="Wedding Celebration" class="img-fluid about-image">
+  <div class="container my-5">
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+        
+        <div class="col">
+            <div class="card">
+                <img src="Golden Luxury Wedding Package Instagram Post.png" class="card-img-top" alt="Wedding Package 1">
+                <div class="card-body text-center">
+                    <h5 class="card-title text-primary">Wedding Package 1</h5>
+                    <p>A beautiful package to make your day unforgettable.</p>
+                    <p >Starting at $2,000</p>
+                    
+                      <a href="login.html" class="btn-link">
+                        <button class="btn btn-danger">Book Now</button>
+                      </a>
+                      
+                      
+                </div>
+            </div>
+        </div>
+
+        
+        <div class="col">
+            <div class="card">
+                <img src="Golden Luxury Wedding Package Instagram Post.png" class="card-img-top" alt="Wedding Package 2">
+                <div class="card-body text-center">
+                    <h5 class="card-title text-primary">Wedding Package 2</h5>
+                    <p class="card-text">A premium package for a luxurious wedding experience.</p>
+                    <p id="one">Starting at $3,500</p>
+                    <a href="login.html" class="btn-link">
+                        <button class="btn btn-danger">Book Now</button>
+                      </a>
+                      
+                    
+                </div>
+            </div>
+        </div>
+
+    
+        <div class="col">
+            <div class="card">
+                <img src="Golden Luxury Wedding Package Instagram Post.png" class="card-img-top" alt="Wedding Package 3">
+                <div class="card-body text-center">
+                    <h5 class="card-title text-primary">Wedding Package 3</h5>
+                    <p class="card-text">For a small, intimate celebration with loved ones.</p>
+                    <p >Starting at $1,500</p>
+                    <a href="login.html" class="btn-link">
+                        <button class="btn btn-danger">Book Now</button>
+                      </a>
+                      
+                    
+                </div>
+            </div>
+        </div>
+
+        
+        <div class="col">
+            <div class="card">
+                <img src="Golden Luxury Wedding Package Instagram Post.png" class="card-img-top" alt="Wedding Package 4">
+                <div class="card-body text-center">
+                    <h5 class="card-title text-primary">Wedding Package 4</h5>
+                    <p class="card-text">An elegant package for a traditional wedding ceremony.</p>
+                    <p >Starting at $2,500</p>
+                    <a href="login.html" class="btn-link">
+                        <button class="btn btn-danger">Book Now</button>
+                      </a>
+                      
+                    
+                </div>
+            </div>
+        </div>
+
+        <div class="col">
+            <div class="card">
+                <img src="Golden Luxury Wedding Package Instagram Post.png" class="card-img-top" alt="Wedding Package 5">
+                <div class="card-body text-center">
+                    <h5 class="card-title text-primary">Wedding Package 5</h5>
+                    <p class="card-text">A full-service wedding package with all the extras.</p>
+                    <p id="one">Starting at $4,000</p>
+                    <a href="login.html" class="btn-link">
+                        <button class="btn btn-danger">Book Now</button>
+                      </a>
+                      
+                    
+                </div>
+            </div>
+        </div>
+
+        
+        <div class="col">
+            <div class="card">
+                <img src="Golden Luxury Wedding Package Instagram Post.png" class="card-img-top" alt="Wedding Package 6">
+                <div class="card-body text-center">
+                    <h5 class="card-title text-primary">Wedding Package 6</h5>
+                    <p class="card-text">The ultimate wedding experience with luxury and comfort.</p>
+                    <p>Starting at $5,000</p>
+                    <a href="login.html" class="btn-link">
+                        <button class="btn btn-danger">Book Now</button>
+                      </a>
+                      
+                    
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
+
+
+</script>
+<section class="banner-section">
+    <img class="banner1 img-fluid" src="banner3.jpg" alt="Banner">
+</section>
+
+
+<div class="container my-5">
+    
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+        
+        
+        <div class="col">
+            <div class="card">
+                <img src="Beige Minimal Wedding Photography Promotion Instagram Story.png" class="card-img-top" alt="Wedding Planner 1">
+                <div class="card-body text-center">
+                    <h5 class="card-title text-primary">Planner A - Classic Elegance</h5>
+                    <p class="card-text">A comprehensive package to make your wedding unforgettable, including venue selection, decor, and more!</p>
+                    <p><strong>Original Price: $5,000</strong></p>
+                    <p class="text-success">Discounted Price: $4,500</p>
+                    <p class="text-danger">Save $500! Limited time offer!</p>
+                    
+                    <button class="btn btn-danger" onclick="openRegistrationForm(1)">Book Planner A</button>
+
+                </div>
+            </div>
+        </div>
+
+        
+        <div class="col">
+            <div class="card">
+                <img src="Beige Minimal Wedding Photography Promotion Instagram Story.png" class="card-img-top" alt="Wedding Planner 2">
+                <div class="card-body text-center">
+                    <h5 class="card-title text-primary">Planner B - Luxury Experience</h5>
+                    <p class="card-text">Indulge in luxury with a full-service wedding planning experience, including premium vendors and exclusive venues.</p>
+                    <p><strong>Original Price: $7,500</strong></p>
+                    <p class="text-success">Discounted Price: $6,800</p>
+                    <p class="text-danger">Save $700! Book now for this exclusive deal!</p>
+                
+                    <button class="btn btn-danger" onclick="openRegistrationForm(2)">Book Planner B</button>
+
+                </div>
+            </div>
+        </div>
+
+        
+        <div class="col">
+            <div class="card">
+                <img src="Beige Minimal Wedding Photography Promotion Instagram Story.png" class="card-img-top" alt="Wedding Planner 3">
+                <div class="card-body text-center">
+                    <h5 class="card-title text-primary">Planner C - Intimate Moments</h5>
+                    <p class="card-text">Perfect for smaller weddings with a focus on personal touches, seamless coordination, and intimate settings.</p>
+                    <p><strong>Original Price: $3,000</strong></p>
+                    <p class="text-success">Discounted Price: $2,700</p>
+                    <p class="text-danger">Save $300! Hurry, limited spots available!</p>
+                    
+                    <button class="btn btn-danger" onclick="openRegistrationForm(3)">Book Planner C</button>
+
+                </div>
+            </div>
+        </div>
+
+        
+        <div class="col">
+            <div class="card">
+                <img src="Beige Minimal Wedding Photography Promotion Instagram Story.png" class="card-img-top" alt="Wedding Planner 4">
+                <div class="card-body text-center">
+                    <h5 class="card-title text-primary">Planner D - Destination Weddings</h5>
+                    <p class="card-text">Let us help you plan the perfect destination wedding, with packages for stunning venues and travel coordination.</p>
+                    <p><strong>Original Price: $10,000</strong></p>
+                    <p class="text-success">Discounted Price: $9,000</p>
+                    <p class="text-danger">Save $1,000 on your dream destination wedding!</p>
+                
+                    <button class="btn btn-danger" onclick="openRegistrationForm(4)">Book Planner D</button>
+
+                </div>
+            </div>
+        </div>
+
+        
+        <div class="col">
+            <div class="card">
+                <img src="Beige Minimal Wedding Photography Promotion Instagram Story.png" class="card-img-top" alt="Wedding Planner 5">
+                <div class="card-body text-center">
+                    <h5 class="card-title text-primary">Planner E - Vintage Charm</h5>
+                    <p class="card-text">A wedding package focused on vintage themes, from decor to attire, for a timeless and charming experience.</p>
+                    <p><strong>Original Price: $4,500</strong></p>
+                    <p class="text-success">Discounted Price: $4,000</p>
+                    <p class="text-danger">Save $500 on your vintage wedding package!</p>
+                    
+                    <button class="btn btn-danger" onclick="openRegistrationForm(5)">Book Planner E</button>
+
+                </div>
+            </div>
+        </div>
+
+        
+        <div class="col">
+            <div class="card" style="height: 100%;">
+                <img src="Beige Minimal Wedding Photography Promotion Instagram Story.png" class="card-img-top" alt="Wedding Planner 6">
+                <div class="card-body text-center">
+                    <h5 class="card-title text-primary">Planner F - All-Inclusive</h5>
+                    <p class="card-text">An all-inclusive wedding package, covering every aspect from catering to entertainment, with all the essentials included.</p>
+                    <p><strong>Original Price: $8,000</strong></p>
+                    <p class="text-success">Discounted Price: $7,200</p>
+                    <p class="text-danger">Save $800 when you book today!</p>
+                    <button class="btn btn-danger" onclick="openRegistrationForm(6)">Book Planner F</button>
+
+                    
+                
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+
+
+
+
+
+ 
+</body>
+  <!-- Footer -->
+ 
+  
+  <footer style="background-color: #333; color: #fff; padding: 20px; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 20px; text-align: center;">
+    <div style="flex: 1; min-width: 250px;">
+        <h4>About Us</h4>
+        <p>We are passionate about making your wedding day as special and unique as your love story. Our team is dedicated to bringing your dream wedding to life.</p>
+    </div>
+
+    <div style="flex: 1; min-width: 250px;">
+        <h4>Quick Links</h4>
+        <ul style="list-style: none; padding: 0;">
+            <li><a href="index.html" style="color: #9ed8e2; text-decoration: none; display: block; padding: 5px;">Home</a></li>
+            <li><a href="aboutus.html" style="color: #9ed8e2; text-decoration: none; display: block; padding: 5px;">About</a></li>
+            <li><a href="gallery.html" style="color: #9ed8e2; text-decoration: none; display: block; padding: 5px;">Gallery</a></li>
+            <li><a href="contact.html" style="color: #9ed8e2; text-decoration: none; display: block; padding: 5px;">Contact</a></li>
+            <li><a href="login.html" style="color: #9ed8e2; text-decoration: none; display: block; padding: 5px;">Login</a></li>
+        </ul>
+    </div>
+
+    <div style="flex: 1; min-width: 250px;">
+        <h4>Contact Us</h4>
+        <p>123 Wedding St, Bliss City</p>
+        <p>+123 456 7890</p>
+        <p><a href="mailto:info@weddingbliss.com" style="color: #fff; text-decoration: none;">info@weddingbliss.com</a></p>
+    </div>
+
+    <div style="flex: 1; min-width: 250px;">
+        <h4>Subscribe</h4>
+        <p>Stay updated with the latest news and special offers.</p>
+        <input type="email" placeholder="Your Email" style="padding: 10px; width: 100%; box-sizing: border-box; border-radius: 5px; border: none;"/>
+        <button style="background-color: #00bcd4; color: white; border: none; padding: 10px; cursor: pointer; width: 100%; margin-top: 10px; border-radius: 5px;">Subscribe</button>
+        
+        <h4 style="margin-top: 20px;">Follow Us</h4>
+        <div>
+            <a href="https://facebook.com" target="_blank" style="color: #fff; text-decoration: none; margin: 0 10px;">
+                <i class="fab fa-facebook-square" style="font-size: 30px;"></i>
+            </a>
+            <a href="https://twitter.com" target="_blank" style="color: #fff; text-decoration: none; margin: 0 10px;">
+                <i class="fab fa-twitter-square" style="font-size: 30px;"></i>
+            </a>
+            <a href="https://instagram.com" target="_blank" style="color: #fff; text-decoration: none; margin: 0 10px;">
+                <i class="fab fa-instagram-square" style="font-size: 30px;"></i>
+            </a>
+            <a href="https://pinterest.com" target="_blank" style="color: #fff; text-decoration: none; margin: 0 10px;">
+                <i class="fab fa-pinterest-square" style="font-size: 30px;"></i>
+            </a>
+        </div>
+    </div>
+
+    <p style="margin-top: 20px; width: 100%; text-align: center;">&copy; 2025 Vows & Dreams. All Rights Reserved.</p>
+</footer>
+
+
+<div class="modal fade" id="registrationModal" tabindex="-1" aria-labelledby="registrationModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+               <center><h5 class="modal-title" id="registrationModalLabel">Wedding Registration</h5></center>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <h2 class="text-center mb-4">Please Fill Out the Registration Form</h2>
+                <form id="registrationForm">
+                    
+                    <input class="wedding-input" type="hidden" id="package" name="package">
+                    
+                    
+                    <div class="mb-3">
+                        <label for="first-name" class="form-label">First Name</label>
+                        <input type="text" id="first-name" name="first-name" class="form-control" required>
+                    </div>
+                    
+                
+                  
+                    
+            
+                    <div class="mb-3">
+                        <label for="email" class="form-label">Email Address</label>
+                        <input type="email" id="email" name="email" class="form-control" required>
+                    </div>
+                    
+                
+                    <div class="mb-3">
+                        <label for="phone" class="form-label">Phone Number (Optional)</label>
+                        <input type="tel" id="phone" name="phone" class="form-control">
+                    </div>
+                    
+                    
+                    <div class="mb-3">
+                        <label class="form-label">Will you be attending?</label><br>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" id="yes" name="attendance" value="yes" required>
+                            <label class="form-check-label" for="yes">Yes</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" id="no" name="attendance" value="no">
+                            <label class="form-check-label" for="no">No</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" id="maybe" name="attendance" value="maybe">
+                            <label class="form-check-label" for="maybe">Maybe</label>
+                        </div>
+                    </div>
+                    
+                    
+                    <div class="mb-3">
+                        <label for="guests" class="form-label">Number of Guests</label>
+                        <select id="guests" name="guests" class="form-select">
+                            <option value="0">0</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                        </select>
+                    </div>
+                    
+                    
+                    <div class="mb-3">
+                        <label for="meal" class="form-label">Meal Preference</label>
+                        <select id="meal" name="meal" class="form-select" onchange="showMealOtherOption()">
+                            <option value="chicken">Chicken</option>
+                            <option value="beef">Beef</option>
+                            <option value="vegetarian">Vegetarian</option>
+                            <option value="vegan">Vegan</option>
+                            <option value="gluten-free">Gluten-Free</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    <div id="meal-other" class="mb-3" style="display:none;">
+                        <label for="meal-other-text" class="form-label">Specify Your Meal Preference</label>
+                        <input type="text" id="meal-other-text" name="meal-other-text" class="form-control">
+                    </div>
+
+                    
+                    <div class="mb-3">
+                        <label for="message" class="form-label">Message to the Couple (Optional)</label>
+                        <textarea id="message" name="message" rows="4" class="form-control"></textarea>
+                    </div>
+
+                    
+                    <div class="text-center">
+                        <button type="submit" class="btn btn-primary">Submit Registration</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
+
+<script>
+    const plannerNames = [
+        "Planner A - Classic Elegance", 
+        "Planner B - Modern Luxury",
+        "Planner C - Rustic Charm",
+        "Planner D - Minimalist Dream",
+        "Planner E - Tropical Bliss",
+        "Planner F - Elegant Romance"
+        
+
+        
+    ];
+
+    function openRegistrationForm(plannerNumber) {
+        
+        if (plannerNumber < 1 || plannerNumber > plannerNames.length) {
+            console.error("Invalid planner number.");
+            return;
+        }
+        
+        document.getElementById('package').value = plannerNames[plannerNumber - 1];
+
+        var myModal = new bootstrap.Modal(document.getElementById('registrationModal'));
+        myModal.show();
+    }
+
+    document.getElementById('registrationForm').addEventListener('submit', function(event) {
+        event.preventDefault(); 
+
+        alert('Registration successful! You have booked the selected wedding planner.');
+        var myModal = bootstrap.Modal.getInstance(document.getElementById('registrationModal'));
+        myModal.hide(); 
+    });
+
+    function showMealOtherOption() {
+        const mealSelect = document.getElementById("meal");
+        const otherOption = document.getElementById("meal-other");
+        if (mealSelect.value === "other") {
+            otherOption.style.display = "block";
+        } else {
+            otherOption.style.display = "none";
+        }
+    }
+</script>
+<script>
+    function bookNow(packageId) {
+        let packageNames = {
+            1: "Wedding Package 1",
+            2: "Wedding Package 2",
+            3: "Wedding Package 3",
+            4: "Wedding Package 4",
+            5: "Wedding Package 5",
+            6: "Wedding Package 6"
+        };
+
+        let packageName = packageNames[packageId] || "Wedding Package";
+
+        // Display a confirmation alert
+        alert(`You have selected ${packageName}. Our team will contact you soon.`);
+    }
+</script>
+
+
+
+
+</html>
+

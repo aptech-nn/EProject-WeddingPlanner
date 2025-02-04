@@ -1,0 +1,749 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Arial', sans-serif;
+  height: 100%;
+  overflow-x: hidden;
+  background-color: #f4f4f4;
+}
+
+.poster {
+  height: 100vh; 
+  background: url('galleryimg.jpg') no-repeat center center/cover;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  color: white;
+}
+
+.poster-text {
+  text-align: center;
+  z-index: 5;
+}
+
+.poster-text h1 {
+  font-size: 60px;
+  font-weight: bold;
+  margin: 0;
+  text-shadow: 3px 3px 10px rgba(0, 0, 0, 0.7);
+}
+
+.poster-text p {
+  font-size: 20px;
+  margin: 20px 0;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+}
+
+.poster-text button {
+  padding: 10px 30px;
+  font-size: 18px;
+  font-weight: bold;
+  color: white;
+  background-color: #4caf50;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.3s ease, transform 0.2s;
+}
+
+.poster-text button:hover {
+  background-color: #2e7d32;
+  transform: scale(1.05);
+}
+
+.poster::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4); 
+  z-index: 1;
+}
+
+header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 20px;
+  background: black;
+}
+
+.navbar {
+  background-color: #000;
+  padding-left: 20px; 
+}
+
+.navbar-brand img {
+  width: 120px;
+  margin-left: 20px;
+}
+
+.nav-link {
+  color: white !important;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  text-transform: uppercase;
+  position: relative;
+  padding-bottom: 3px;
+  margin-right: 110px;
+  font-size: 20px;
+}
+
+.nav-link::before,
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  width: 0;
+  height: 3px;
+  background-color: #333;
+  transition: all 0.3s;
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+  width: 100%;
+}
+
+.nav-link::after {
+  left: 50%;
+  bottom: 0;
+  width: 50%;
+  height: 2px;
+  background-color: #b3b3b3;
+  transition: all 0.3s;
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+  width: 50%;
+  left: 0;
+}
+
+.navbar-toggler {
+  border: none;
+  background: transparent;
+  outline: none;
+}
+
+.navbar-toggler-icon {
+  color: white;
+}
+
+.navbar-nav .nav-link {
+  color: white !important;
+  font-weight: 600;
+  text-transform: uppercase;
+  padding: 10px 15px;
+}
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 15px;
+  padding: 1px;
+}
+
+.gallery img {
+  width: 100%;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.large-img {
+  grid-row: span 2;
+  height: 100%;
+  object-fit: cover;
+}
+.small-img {
+
+  height: 200px;
+  object-fit: cover
+}
+
+.gallery img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+.gallery img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+.full-screen-gallery {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 40px;
+  padding: 40px;
+  background: rgb(58, 57, 57);
+}
+
+.full-screen-gallery {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 40px;
+  padding: 40px;
+  background: rgb(58, 57, 57);
+}
+
+.image-container {
+  position: relative;
+  height: 600px;
+  overflow: hidden;
+  border-radius: 15px;
+}
+
+.image-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.image-container:hover img {
+  transform: scale(1.05);
+}
+
+.portfolio-item .btn-primary {
+  background-color: #00bcd4;
+  color: white;
+  text-decoration: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+}
+
+.portfolio-item .btn-primary:hover {
+  background-color: #0097a7;
+}
+
+footer {
+  background-color: var(--primary-color);
+  color: var(--text-white);
+  padding: 60px 0 30px;
+}
+
+footer h4 {
+  font-family: 'Playfair Display', serif;
+  margin-bottom: 25px;
+  font-size: 24px;
+  color: var(--text-white);
+}
+
+footer a {
+  color: #a7dff5;
+}
+
+.subscribe-input {
+  background: rgba(255, 255, 255, 0.1);
+  border: none;
+  padding: 12px;
+  border-radius: 5px;
+  color: white;
+  margin-bottom: 15px;
+}
+
+.subscribe-button {
+  background: var(--text-light);
+  border: none;
+  padding: 12px 25px;
+  border-radius: 5px;
+  font-weight: 500;
+  letter-spacing: 1px;
+  transition: transform 0.3s ease;
+  color: var(--primary-color);
+}
+
+.subscribe-button:hover {
+  transform: translateY(-2px);
+}
+
+.social-icons a {
+  margin-right: 20px;
+  font-size: 24px;
+  transition: transform 0.3s ease;
+  color: white;
+}
+
+.social-icons a:hover {
+  transform: translateY(-5px);
+  color: white;
+}
+
+.quick-links li {
+  margin-bottom: 10px;
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+  .navbar-nav {
+    text-align: center;
+  }
+
+  .navbar-brand img {
+    width: 100px;
+  }
+
+  .nav-link {
+    margin-right: 30px;
+    font-size: 18px;
+  }
+
+  .gallery {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  }
+
+  .poster-text h1 {
+    font-size: 40px;
+  }
+
+  .poster-text p {
+    font-size: 16px;
+  }
+
+  .poster-text button {
+    font-size: 16px;
+    padding: 8px 20px;
+  }
+
+  .full-screen-gallery {
+    grid-template-columns: 1fr;
+    padding: 20px;
+  }
+
+  .image-container {
+    height: 400px;
+  }
+
+  .team-image {
+    width: 120px;
+    height: 120px;
+  }
+
+  footer {
+    padding: 40px 0 20px;
+  }
+
+  footer h4 {
+    font-size: 20px;
+  }
+
+  .subscribe-input,
+  .subscribe-button {
+    width: 100%;
+    padding: 12px;
+  }
+
+  .social-icons a {
+    font-size: 20px;
+  }
+}
+footer {
+      background-color: #fff; /* Light footer */
+      color: #444;
+      padding: 20px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      box-shadow: 0 -2px 5px rgba(0,0,0,0.1); /* Subtle shadow */
+    }
+
+    footer a {
+      color: #444;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    footer a:hover {
+      color: #84b4f1; /* Red on hover */
+    }
+
+    footer input[type="email"] {
+      padding: 5px;
+      width: 100%;
+      box-sizing: border-box;
+    }
+
+    footer button {
+      background-color: #e74c3c;
+      color: white;
+      border: none;
+      padding: 5px 10px;
+      cursor: pointer;
+      width: 100%;
+      margin-top: 10px;
+    }
+
+    footer .social-links i {
+      font-size: 30px;
+    }
+
+    footer p {
+      margin-top: 20px;
+      text-align: center;
+      width: 100%;
+    }
+    footer {
+  background-color: var(--primary-color);
+  color: var(--text-white);
+  padding: 60px 0 30px;
+}
+
+footer h4 {
+  font-family: 'Playfair Display', serif;
+  margin-bottom: 25px;
+  font-size: 24px;
+  color: var(--text-white);
+}
+
+footer a {
+  color: #a7dff5;
+}
+
+.subscribe-input {
+  background: rgba(255, 255, 255, 0.1);
+  border: none;
+  padding: 12px;
+  border-radius: 5px;
+  color: white;
+  margin-bottom: 15px;
+}
+
+.subscribe-button {
+  background: var(--text-light);
+  border: none;
+  padding: 12px 25px;
+  border-radius: 5px;
+  font-weight: 500;
+  letter-spacing: 1px;
+  transition: transform 0.3s ease;
+  color: var(--primary-color);
+}
+
+.subscribe-button:hover {
+  transform: translateY(-2px);
+}
+
+.social-icons a {
+  margin-right: 20px;
+  font-size: 24px;
+  transition: transform 0.3s ease;
+  color: white;
+}
+
+.social-icons a:hover {
+  transform: translateY(-5px);
+  color: white;
+}
+
+.quick-links li {
+  margin-bottom: 10px;
+}
+
+    </style>
+</head>
+<body>
+    <body>
+  
+        <div class="poster">
+          
+          <header>
+            <nav class="navbar navbar-expand-lg">
+                <a class="navbar-brand" href="#"><img src="VOWS_&_DREAMS_(1)[1].png" alt="Logo" width="100"></a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
+                    <span class="navbar-toggler-icon"><i class="fas fa-bars"></i></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                        <li class="nav-item"><a class="nav-link" href="aboutus.html">About</a></li>
+                        <li class="nav-item"><a class="nav-link" href="gallery.html">Gallery</a></li>
+                        <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                        <li class="nav-item"><a class="nav-link" href="login.html">Login</a></li>
+                    </ul>
+                </div>
+            </nav>
+        </header>
+          <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+          <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.4.4/dist/umd/popper.min.js"></script>
+          <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+          
+      
+          
+          <div class="poster-text">
+            <h1>Welcome to Our Event</h1>
+            <p>Experience the best moments with us</p>
+            
+          </div>
+        </div>
+       
+      
+        <div>
+        <section class="gallery">
+          <img src="gall1.jpg" alt="Gallery Image 1" class="large-img">
+          <img src="gall2.jpg" alt="Gallery Image 2" class="small-img">
+          <img src="gall3.jpg" alt="Gallery Image 3" class="small-img">
+          <img src="gall4.jpg" alt="Gallery Image 4" class="large-img">
+          <img src="gall5.jpg" alt="Gallery Image 5" class="small-img">
+          <img src="gall6.jpg" alt="Gallery Image 6" class="small-img">
+          <img src="gall8.jpg" alt="Gallery Image 7" class="large-img">
+          <img src="gall9.jpg" alt="Gallery Image 8" class="small-img">
+        </section></div>
+        <div>
+        <section class="full-screen-gallery">
+          <div class="image-container">
+            <img src="galler3.jpg" alt="Full-Screen Image 1">
+          </div>
+          <div class="image-container">
+            <img src="gallery2.jpg" alt="Full-Screen Image 2"><br><br>
+          </div>
+          <div class="image-container">
+            <img src="galler5.jpg" alt="Full-Screen Image 3">
+          </div>
+          <div class="image-container">
+            <img src="gall7.jpg" alt="Full-Screen Image 4">
+          </div>
+        </section>
+      
+        <section id="portfolio" style="background: #e4e4e4; padding: 50px 0;">
+          <div class="container">
+              <h2 class="text-center mb-5" style="font-family: 'Poppins', sans-serif; font-weight: 600; color: #333;">Designs & Inspirations</h2>
+              <div class="row">
+                  <div class="col-md-4 mb-4">
+                      <div class="portfolio-item">
+                          <img src="https://th.bing.com/th/id/OIP.-AylWmYLEJYnsUVB_2AKbAHaE0?rs=1&pid=ImgDetMain" alt="Ethereal Dreams" class="img-fluid rounded" style="width: 100%; height: 250px; object-fit: cover;">
+                          <h3 class="mt-3" style="font-family: 'Poppins', sans-serif; font-weight: 600; color: #333;">Ethereal Dreams</h3>
+                          <p style="padding: 10px;">A blend of elegance and creativity, capturing beauty that resonates with timeless charm.</p>
+                          <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#detailsModal">View Details</a>
+      
+                          
+                      </div>
+                  </div>
+                    <!-- Modal -->
+        <div class="modal fade" id="detailsModal" tabindex="-1" aria-labelledby="detailsModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content" style="border-radius: 15px; box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1); background-color: #1d1d1d; color: #f5f5f5; padding: 30px;">
+              <div class="modal-header" style="background-color: #333; color: #f5f5f5; border-bottom: 1px solid #444; border-radius: 15px 15px 0 0; padding: 20px;">
+                <h5 class="modal-title" id="detailsModalLabel" style="font-family: 'Great Vibes', cursive; font-size: 28px; font-weight: 600; color: #bfa3d6; text-transform: uppercase;">
+                  Ethereal Dreams - Wedding Planning Services
+                </h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="color: #f5f5f5; font-size: 30px;">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body details-section" style="font-size: 16px; line-height: 1.8;">
+                <h4 style="color: #bfa3d6; font-family: 'Poppins', sans-serif; font-weight: 600; font-size: 22px; margin-bottom: 10px; text-transform: uppercase; letter-spacing: 1px;">About Us</h4>
+                <p style="font-family: 'Poppins', sans-serif; color: #e1e1e1; font-size: 16px; line-height: 1.6;">Ethereal Dreams is a wedding planning service that specializes in creating sophisticated and magical experiences. We offer personalized planning to ensure your wedding reflects your unique story. With a focus on details and creativity, our team curates the most unforgettable moments for your special day.</p>
+      
+                <h4 style="color: #bfa3d6; font-family: 'Poppins', sans-serif; font-weight: 600; font-size: 22px; margin-bottom: 10px; text-transform: uppercase; letter-spacing: 1px;">Our Services</h4>
+                <ul style="list-style: none; padding: 0; font-family: 'Poppins', sans-serif; font-size: 16px; color: #e1e1e1;">
+                  <li style="margin-bottom: 12px; transition: all 0.3s ease; font-weight: 400;">Custom Wedding Design & Coordination</li>
+                  <li style="margin-bottom: 12px; transition: all 0.3s ease; font-weight: 400;">Venue Selection & Setup</li>
+                  <li style="margin-bottom: 12px; transition: all 0.3s ease; font-weight: 400;">Catering & Menu Planning</li>
+                  <li style="margin-bottom: 12px; transition: all 0.3s ease; font-weight: 400;">Floral & Decor Services</li>
+                  <li style="margin-bottom: 12px; transition: all 0.3s ease; font-weight: 400;">Bridal Party Styling</li>
+                  <li style="margin-bottom: 12px; transition: all 0.3s ease; font-weight: 400;">Event Day Coordination</li>
+                </ul>
+      
+                <h4 style="color: #bfa3d6; font-family: 'Poppins', sans-serif; font-weight: 600; font-size: 22px; margin-bottom: 10px; text-transform: uppercase; letter-spacing: 1px;">Why Choose Us?</h4>
+                <p style="font-family: 'Poppins', sans-serif; color: #e1e1e1; font-size: 16px; line-height: 1.6;">Our team takes pride in curating your dream wedding with precision and creativity. We ensure that every detail is perfectly executed, allowing you to enjoy your special day with confidence and ease. From the initial concept to the final execution, we’re here to make your wedding day effortlessly magical.</p>
+              </div>
+              
+            </div>
+          </div>
+        </div>
+      
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.4.4/dist/umd/popper.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+      
+      
+        
+                  <div class="col-md-4 mb-4">
+                      <div class="portfolio-item">
+                          <img src="https://fancyhouse-design.com/wp-content/uploads/2023/11/The-dream-outdoor-dining-area-is-ideal-for-wedding-nuptials.jpg" alt="Urban Pulse" class="img-fluid rounded" style="width: 100%; height: 250px; object-fit: cover;">
+                          <h3 class="mt-3" style="font-family: 'Poppins', sans-serif; font-weight: 600; color: #333;">Urban Pulse</h3>
+                          <p style="padding: 10px;">An exploration of city life blending architecture with the rhythm of urban culture.</p>
+                          <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#detailsModal1">View Details</a>
+      
+                      </div>
+                  </div>
+                  <div class="modal fade" id="detailsModal1" tabindex="-1" aria-labelledby="detailsModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                      <div class="modal-content" style="border-radius: 15px; box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1); background-color: #1d1d1d; color: #f5f5f5; padding: 30px;">
+                        <div class="modal-header" style="background-color: #333; color: #f5f5f5; border-bottom: 1px solid #444; border-radius: 15px 15px 0 0; padding: 20px;">
+                          <h5 class="modal-title" id="detailsModalLabel" style="font-family: 'Great Vibes', cursive; font-size: 28px; font-weight: 600; color: #bfa3d6; text-transform: uppercase;">
+                            Urban Pulse - Wedding Planning Services
+                          </h5>
+                          <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="color: #f5f5f5; font-size: 30px;">
+                            <span aria-hidden="true">&times;</span>
+                          </button>
+                        </div>
+                        <div class="modal-body details-section" style="font-size: 16px; line-height: 1.8;">
+                          <h4 style="color: #bfa3d6; font-family: 'Poppins', sans-serif; font-weight: 600; font-size: 22px; margin-bottom: 10px; text-transform: uppercase; letter-spacing: 1px;">About Us</h4>
+                          <p style="font-family: 'Poppins', sans-serif; color: #e1e1e1; font-size: 16px; line-height: 1.6;">Urban Pulse is a wedding planning service that specializes in creating sophisticated and magical experiences. We offer personalized planning to ensure your wedding reflects your unique story. With a focus on details and creativity, our team curates the most unforgettable moments for your special day.</p>
+                
+                          <h4 style="color: #bfa3d6; font-family: 'Poppins', sans-serif; font-weight: 600; font-size: 22px; margin-bottom: 10px; text-transform: uppercase; letter-spacing: 1px;">Our Services</h4>
+                          <ul style="list-style: none; padding: 0; font-family: 'Poppins', sans-serif; font-size: 16px; color: #e1e1e1;">
+                            <li style="margin-bottom: 12px; transition: all 0.3s ease; font-weight: 400;">Custom Wedding Design & Coordination</li>
+                            <li style="margin-bottom: 12px; transition: all 0.3s ease; font-weight: 400;">Venue Selection & Setup</li>
+                            <li style="margin-bottom: 12px; transition: all 0.3s ease; font-weight: 400;">Catering & Menu Planning</li>
+                            <li style="margin-bottom: 12px; transition: all 0.3s ease; font-weight: 400;">Floral & Decor Services</li>
+                            <li style="margin-bottom: 12px; transition: all 0.3s ease; font-weight: 400;">Bridal Party Styling</li>
+                            <li style="margin-bottom: 12px; transition: all 0.3s ease; font-weight: 400;">Event Day Coordination</li>
+                          </ul>
+                
+                          <h4 style="color: #bfa3d6; font-family: 'Poppins', sans-serif; font-weight: 600; font-size: 22px; margin-bottom: 10px; text-transform: uppercase; letter-spacing: 1px;">Why Choose Us?</h4>
+                          <p style="font-family: 'Poppins', sans-serif; color: #e1e1e1; font-size: 16px; line-height: 1.6;">Our team takes pride in curating your dream wedding with precision and creativity. We ensure that every detail is perfectly executed, allowing you to enjoy your special day with confidence and ease. From the initial concept to the final execution, we’re here to make your wedding day effortlessly magical.</p>
+                        </div>
+                        
+                      </div>
+                    </div>
+                  </div>
+                
+                  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+                  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.4.4/dist/umd/popper.min.js"></script>
+                  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+                
+                  
+        
+                  <div class="col-md-4 mb-4">
+                      <div class="portfolio-item">
+                          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRMHm3eFTFf37aUM3aC9oKHrtd12CW8-tJubA&s" alt="Whispers of Nature" class="img-fluid rounded" style="width: 100%; height: 250px; object-fit: cover;">
+                          <h3 class="mt-3" style="font-family: 'Poppins', sans-serif; font-weight: 600; color: #333;">Whispers of Nature</h3>
+                          <p style="padding: 10px;">A tribute to nature, capturing light, texture, and organic forms in design.</p>
+                          <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#detailsModal2">View Details</a>
+      
+                      </div>
+                  </div>
+              </div>
+          </div>
+          <div class="modal fade" id="detailsModal2" tabindex="-1" aria-labelledby="detailsModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content" style="border-radius: 15px; box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1); background-color: #1d1d1d; color: #f5f5f5; padding: 30px;">
+                <div class="modal-header" style="background-color: #333; color: #f5f5f5; border-bottom: 1px solid #444; border-radius: 15px 15px 0 0; padding: 20px;">
+                  <h5 class="modal-title" id="detailsModalLabel" style="font-family: 'Great Vibes', cursive; font-size: 28px; font-weight: 600; color: #bfa3d6; text-transform: uppercase;">
+                    Whispers Of Nature- Wedding Planning Services
+                  </h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="color: #f5f5f5; font-size: 30px;">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body details-section" style="font-size: 16px; line-height: 1.8;">
+                  <h4 style="color: #bfa3d6; font-family: 'Poppins', sans-serif; font-weight: 600; font-size: 22px; margin-bottom: 10px; text-transform: uppercase; letter-spacing: 1px;">About Us</h4>
+                  <p style="font-family: 'Poppins', sans-serif; color: #e1e1e1; font-size: 16px; line-height: 1.6;">Whispers of Nature is a wedding planning service that specializes in creating sophisticated and magical experiences. We offer personalized planning to ensure your wedding reflects your unique story. With a focus on details and creativity, our team curates the most unforgettable moments for your special day.</p>
+        
+                  <h4 style="color: #bfa3d6; font-family: 'Poppins', sans-serif; font-weight: 600; font-size: 22px; margin-bottom: 10px; text-transform: uppercase; letter-spacing: 1px;">Our Services</h4>
+                  <ul style="list-style: none; padding: 0; font-family: 'Poppins', sans-serif; font-size: 16px; color: #e1e1e1;">
+                    <li style="margin-bottom: 12px; transition: all 0.3s ease; font-weight: 400;">Custom Wedding Design & Coordination</li>
+                    <li style="margin-bottom: 12px; transition: all 0.3s ease; font-weight: 400;">Venue Selection & Setup</li>
+                    <li style="margin-bottom: 12px; transition: all 0.3s ease; font-weight: 400;">Catering & Menu Planning</li>
+                    <li style="margin-bottom: 12px; transition: all 0.3s ease; font-weight: 400;">Floral & Decor Services</li>
+                    <li style="margin-bottom: 12px; transition: all 0.3s ease; font-weight: 400;">Bridal Party Styling</li>
+                    <li style="margin-bottom: 12px; transition: all 0.3s ease; font-weight: 400;">Event Day Coordination</li>
+                  </ul>
+        
+                  <h4 style="color: #bfa3d6; font-family: 'Poppins', sans-serif; font-weight: 600; font-size: 22px; margin-bottom: 10px; text-transform: uppercase; letter-spacing: 1px;">Why Choose Us?</h4>
+                  <p style="font-family: 'Poppins', sans-serif; color: #e1e1e1; font-size: 16px; line-height: 1.6;">Our team takes pride in curating your dream wedding with precision and creativity. We ensure that every detail is perfectly executed, allowing you to enjoy your special day with confidence and ease. From the initial concept to the final execution, we’re here to make your wedding day effortlessly magical.</p>
+                </div>
+                
+              </div>
+            </div>
+          </div>
+        
+          <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+          <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.4.4/dist/umd/popper.min.js"></script>
+          <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+        
+        </section>
+        
+      
+        
+        
+        
+        <div class="container-fluid">
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+      
+
+      <footer style="background-color: #333; color: #fff; padding: 20px; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 20px; text-align: center;">
+        <div style="flex: 1; min-width: 250px;">
+            <h4>About Us</h4>
+            <p>We are passionate about making your wedding day as special and unique as your love story. Our team is dedicated to bringing your dream wedding to life.</p>
+        </div>
+    
+        <div style="flex: 1; min-width: 250px;">
+            <h4>Quick Links</h4>
+            <ul style="list-style: none; padding: 0;">
+                <li><a href="index.html" style="color: #9ed8e2; text-decoration: none; display: block; padding: 5px;">Home</a></li>
+                <li><a href="aboutus.html" style="color: #9ed8e2; text-decoration: none; display: block; padding: 5px;">About</a></li>
+                <li><a href="gallery.html" style="color: #9ed8e2; text-decoration: none; display: block; padding: 5px;">Gallery</a></li>
+                <li><a href="contact.html" style="color: #9ed8e2; text-decoration: none; display: block; padding: 5px;">Contact</a></li>
+                <li><a href="login.html" style="color: #9ed8e2; text-decoration: none; display: block; padding: 5px;">Login</a></li>
+            </ul>
+        </div>
+    
+        <div style="flex: 1; min-width: 250px;">
+            <h4>Contact Us</h4>
+            <p>123 Wedding St, Bliss City</p>
+            <p>+123 456 7890</p>
+            <p><a href="mailto:info@weddingbliss.com" style="color: #fff; text-decoration: none;">info@weddingbliss.com</a></p>
+        </div>
+    
+        <div style="flex: 1; min-width: 250px;">
+            <h4>Subscribe</h4>
+            <p>Stay updated with the latest news and special offers.</p>
+            <input type="email" placeholder="Your Email" style="padding: 10px; width: 100%; box-sizing: border-box; border-radius: 5px; border: none;"/>
+            <button style="background-color: #00bcd4; color: white; border: none; padding: 10px; cursor: pointer; width: 100%; margin-top: 10px; border-radius: 5px;">Subscribe</button>
+            
+            <h4 style="margin-top: 20px;">Follow Us</h4>
+            <div>
+                <a href="https://facebook.com" target="_blank" style="color: #fff; text-decoration: none; margin: 0 10px;">
+                    <i class="fab fa-facebook-square" style="font-size: 30px;"></i>
+                </a>
+                <a href="https://twitter.com" target="_blank" style="color: #fff; text-decoration: none; margin: 0 10px;">
+                    <i class="fab fa-twitter-square" style="font-size: 30px;"></i>
+                </a>
+                <a href="https://instagram.com" target="_blank" style="color: #fff; text-decoration: none; margin: 0 10px;">
+                    <i class="fab fa-instagram-square" style="font-size: 30px;"></i>
+                </a>
+                <a href="https://pinterest.com" target="_blank" style="color: #fff; text-decoration: none; margin: 0 10px;">
+                    <i class="fab fa-pinterest-square" style="font-size: 30px;"></i>
+                </a>
+            </div>
+        </div>
+    
+        <p style="margin-top: 20px; width: 100%; text-align: center;">&copy; 2025 Vows & Dreams. All Rights Reserved.</p>
+    </footer>
+    
+      
+      
+        </div>
+        
+        
+        
+      </body>
+      </html>
+</body>
+</html>
